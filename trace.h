@@ -6,6 +6,7 @@ namespace kitten {
 
 #ifndef DISABLE_TRACING
 #define TRACE_SCOPE ScopedTrace __traceMarker__##__LINE__(__FILE__, __func__, __LINE__)
+#define TRACE_NAMED_SCOPE(name) ScopedTrace __traceMarker__##__LINE__(__FILE__, name, __LINE__)
 #define TRACE_SET_THREAD_NAME(name) setTraceThreadName(name)
 #else
 #define TRACE_SCOPE
