@@ -2,16 +2,16 @@
 
 #include <string_view>
 
-namespace kitten {
-
 #ifndef DISABLE_TRACING
-#define TRACE_SCOPE ScopedTrace __traceMarker__##__LINE__(__FILE__, __func__, __LINE__)
-#define TRACE_NAMED_SCOPE(name) ScopedTrace __traceMarker__##__LINE__(__FILE__, name, __LINE__)
-#define TRACE_SET_THREAD_NAME(name) setTraceThreadName(name)
+#define TRACE_SCOPE kitten::ScopedTrace __traceMarker__##__LINE__(__FILE__, __func__, __LINE__)
+#define TRACE_NAMED_SCOPE(name) kitten::ScopedTrace __traceMarker__##__LINE__(__FILE__, name, __LINE__)
+#define TRACE_SET_THREAD_NAME(name) kitten::setTraceThreadName(name)
 #else
 #define TRACE_SCOPE
 #define TRACE_SET_THREAD_NAME(name) 
 #endif
+
+namespace kitten {
 
 struct TraceMarker;
 
