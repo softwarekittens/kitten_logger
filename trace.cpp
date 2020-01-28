@@ -158,6 +158,7 @@ ScopedTrace::ScopedTrace(std::string_view file, std::string_view func, int line)
     m_marker->m_line = line;
     m_marker->m_begin = std::chrono::duration_cast<std::chrono::microseconds>(
         std::chrono::high_resolution_clock::now().time_since_epoch()).count();
+    m_marker->m_end = m_marker->m_begin;
 }
 
 ScopedTrace::~ScopedTrace() {
