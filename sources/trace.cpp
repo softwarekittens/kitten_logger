@@ -1,4 +1,4 @@
-#include "trace.h"
+#include "kitten_logger/trace.h"
 
 #include <deque>
 #include <chrono>
