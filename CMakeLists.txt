@@ -2,7 +2,7 @@ set(NAME kitten_logger)
 
 file (GLOB srcs ${CMAKE_CURRENT_SOURCE_DIR}/sources/*.cpp)
 
-add_library(${NAME} SHARED ${srcs})
+add_library(${NAME} ${srcs})
 target_include_directories(${NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 find_package(Boost REQUIRED COMPONENTS system)
