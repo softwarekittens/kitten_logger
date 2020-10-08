@@ -8,10 +8,12 @@ namespace {
 
 #ifndef WITHOUT_CRASH_HANDLER
 void crashHandler(int sig) {
-    LOGE << "Woops! Crashed! signal " << sig;     
-    LOGE << boost::stacktrace::stacktrace();
+    printf("Woops! Crashed! signal %d\n", sig);
+    std::stringstream ss;
+    ss <<  boost::stacktrace::stacktrace();
+    printf("%s", ss.str().c_str());
     // FOLLOWING LINE IS ABSOLUTELY NEEDED AT THE END IN ORDER TO ABORT APPLICATION
-    el::Helpers::crashAbort(sig);
+    exit(1);
 }
 #endif //WITHOUT_CRASH_HANDLER
 
